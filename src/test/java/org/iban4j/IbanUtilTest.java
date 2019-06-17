@@ -17,6 +17,7 @@ package org.iban4j;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
+import org.iban4j.IbanFormatException.IbanFormatViolation;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,8 +32,6 @@ import java.util.Collection;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
-
-import org.iban4j.IbanFormatException.IbanFormatViolation;
 
 @RunWith(Enclosed.class)
 public class IbanUtilTest {
@@ -269,9 +268,30 @@ public class IbanUtilTest {
     @RunWith(Parameterized.class)
     public static class ValidIbanValidationTest {
 
+        private final String iban;
+
+        public ValidIbanValidationTest(String iban, Object __) {
+            this.iban = iban;
+        }
+
+        @Test
+        public void ibanValidationWithValidIbanShouldNotThrowException() {
+            System.out.println(iban);
+            IbanUtil.validate(iban);
+        }
+
+        @Parameterized.Parameters
+        public static Collection<Object[]> ibanParameters() {
+            return TestDataHelper.getIbans();
+        }
+    }
+
+    @RunWith(Parameterized.class)
+    public static class ValidIbanDataValidationTest {
+
         private final String ibanString;
 
-        public ValidIbanValidationTest(Iban iban, String ibanString) {
+        public ValidIbanDataValidationTest(Iban iban, String ibanString) {
             this.ibanString = ibanString;
         }
 

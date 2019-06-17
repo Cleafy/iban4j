@@ -56,6 +56,11 @@ public class BbanStructureEntry {
         this.length = length;
     }
 
+    public static BbanStructureEntry reserveNumber(final int length, final char characterType) {
+        return new BbanStructureEntry(BbanEntryType.reserve_number,
+                EntryCharacterType.valueOf(String.valueOf(characterType)), length);
+    }
+
     public static BbanStructureEntry bankCode(final int length, final char characterType) {
         return new BbanStructureEntry(BbanEntryType.bank_code,
                 EntryCharacterType.valueOf(String.valueOf(characterType)), length);
@@ -68,6 +73,11 @@ public class BbanStructureEntry {
 
     public static BbanStructureEntry accountNumber(final int length, final char characterType) {
         return new BbanStructureEntry(BbanEntryType.account_number,
+                EntryCharacterType.valueOf(String.valueOf(characterType)), length);
+    }
+
+    public static BbanStructureEntry currency(final int length, final char characterType) {
+        return new BbanStructureEntry(BbanEntryType.currency,
                 EntryCharacterType.valueOf(String.valueOf(characterType)), length);
     }
 

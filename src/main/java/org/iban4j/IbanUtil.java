@@ -189,6 +189,26 @@ public final class IbanUtil {
     }
 
     /**
+     * Returns iban's currency.
+     *
+     * @param iban String
+     * @return currency String
+     */
+    public static String getCurrency(final String iban) {
+        return extractBbanEntry(iban, BbanEntryType.currency);
+    }
+
+    /**
+     * Returns iban's bank code.
+     *
+     * @param iban String
+     * @return reserveNumber String
+     */
+    public static String getReserveNumber(final String iban) {
+        return extractBbanEntry(iban, BbanEntryType.reserve_number);
+    }
+
+    /**
      * Returns iban's bank code.
      *
      * @param iban String
