@@ -47,6 +47,12 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-server</id>
+            <url>https://nexus.cleafy.org/repository/iban4j/</url>
+        </repository>
+    </distributionManagement>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
