@@ -83,9 +83,10 @@ final class TestDataHelper {
                         .build(), "BG80BNBG96611020345678"},
                 {new Iban.Builder()
                         .countryCode(CountryCode.CR)
-                        .bankCode("152")
-                        .accountNumber("02001026284066")
-                        .build(), "CR0515202001026284066"},
+                        .reserveNumber("0")
+                        .bankCode("151")
+                        .accountNumber("08410026012345")
+                        .build(), "CR23015108410026012345"},
                 {new Iban.Builder()
                         .countryCode(CountryCode.HR)
                         .bankCode("1001005")
@@ -429,7 +430,54 @@ final class TestDataHelper {
                         .countryCode(CountryCode.UA)
                         .bankCode("354347")
                         .accountNumber("0006762462054925026")
-                        .build(), "UA573543470006762462054925026"}
+                        .build(), "UA573543470006762462054925026"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.BY)
+                        .bankCode("AKBB")
+                        .branchCode("1010")
+                        .accountNumber("0000002966000000")
+                        .build(), "BY86AKBB10100000002966000000"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.SV)
+                        .bankCode("ACAT")
+                        .accountNumber("00000000000000123123")
+                        .build(), "SV43ACAT00000000000000123123"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.IQ)
+                        .bankCode("CBIQ")
+                        .branchCode("861")
+                        .accountNumber("800101010500")
+                        .build(), "IQ20CBIQ861800101010500"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.LC)
+                        .bankCode("BOSL")
+                        .accountNumber("123456789012345678901234")
+                        .build(), "LC14BOSL123456789012345678901234"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.ST)
+                        .bankCode("0002")
+                        .branchCode("0000")
+                        .accountNumber("0289355710148")
+                        .build(), "ST23000200000289355710148"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.SC)
+                        .bankCode("BAHL")
+                        .branchCode("0103")
+                        .accountNumber("1234567890123456")
+                        .currency("USD")
+                        .build(), "SC52BAHL01031234567890123456USD"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.BJ)
+                        .bankCode("B")
+                        .accountNumber("00610100400271101192591")
+                        .build(), "BJ11B00610100400271101192591"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.MG)
+                        .bankCode("00005")
+                        .branchCode("03001")
+                        .accountNumber("01019140160")
+                        .nationalCheckDigit("56")
+                        .build(), "MG4600005030010101914016056"},
         });
     }
 

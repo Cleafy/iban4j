@@ -115,6 +115,31 @@ public class IbanTest {
         }
 
         @Test
+        public void ibanShouldReturnValidCurrency() {
+            Iban iban = new Iban.Builder()
+                    .countryCode(CountryCode.SC)
+                    .bankCode("BAHL")
+                    .branchCode("0103")
+                    .accountNumber("1234567890123456")
+                    .currency("USD")
+                    .build();
+
+            assertThat(iban.getCurrency(), is(equalTo("USD")));
+        }
+
+        @Test
+        public void ibanShouldReturnValidReserveNumber() {
+            Iban iban = new Iban.Builder()
+                    .countryCode(CountryCode.CR)
+                    .reserveNumber("0")
+                    .bankCode("151")
+                    .accountNumber("08410026012345")
+                    .build();
+
+            assertThat(iban.getReserveNumber(), is(equalTo("0")));
+        }
+
+        @Test
         public void ibanShouldReturnValidBankCode() {
             Iban iban = new Iban.Builder()
                     .countryCode(CountryCode.AT)
@@ -401,6 +426,24 @@ public class IbanTest {
 
             iban = Iban.random(CountryCode.AT);
             assertThat(iban.getCountryCode(), is(equalTo(CountryCode.AT)));
+        }
+
+        @Test
+        public void ibanContructionRandomRetainsSpecifiedReserveNumber() {
+            Iban iban = new Iban.Builder()
+                    .countryCode(CountryCode.CR)
+                    .reserveNumber("1")
+                    .buildRandom();
+            assertThat(iban.getReserveNumber(), is(equalTo("1")));
+        }
+
+        @Test
+        public void ibanContructionRandomRetainsSpecifiedCurrency() {
+            Iban iban = new Iban.Builder()
+                    .countryCode(CountryCode.SC)
+                    .currency("USD")
+                    .buildRandom();
+            assertThat(iban.getCurrency(), is(equalTo("USD")));
         }
 
         @Test
