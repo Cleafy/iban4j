@@ -23,102 +23,6 @@ final class TestDataHelper {
     private TestDataHelper() {
     }
 
-    public static Collection<Object[]> getIbans() {
-        return Arrays.asList(new Object[][]{
-                {"AL35202111090000000001234567", null},
-                {"AD1400080001001234567890", null},
-                {"SA4420000001234567891234", null},
-                {"AT483200000012345864", null},
-                {"AZ96AZEJ00000000001234567890", null},
-                {"BH02CITI00001077181611", null},
-                {"BE71096123456769", null},
-                {"BY86AKBB10100000002966000000", null},
-                {"BA393385804800211234", null},
-                {"BR1500000000000010932840814P2", null},
-                {"BG18RZBB91550123456789", null},
-                {"CY21002001950000357001234567", null},
-                {"CR23015108410026012345", null},
-                {"HR1723600001101234565", null},
-                {"DK9520000123456789", null},
-                {"SV43ACAT00000000000000123123", null},
-                {"AE460090000000123456789", null},
-                {"EE471000001020145685", null},
-                {"FI1410093000123458", null},
-                {"FR7630006000011234567890189", null},
-                {"GE60NB0000000123456789", null},
-                {"DE91100000000123456789", null},
-                {"GI04BARC000001234567890", null},
-                {"JO71CBJO0000000000001234567890", null},
-                {"GR9608100010000001234567890", null},
-                {"GL8964710123456789", null},
-                {"GT20AGRO00000000001234567890", null},
-                {"IQ20CBIQ861800101010500", null},
-                {"IE64IRCE92050112345678", null},
-                {"IS030001121234561234567890", null},
-                {"FO9264600123456789", null},
-                {"VG21PACG0000000123456789", null},
-                {"IL170108000000012612345", null},
-                {"IT60X0542811101000000123456", null},
-                {"KZ563190000012344567", null},
-                {"XK051212012345678906", null},
-                {"KW81CBKU0000000000001234560101", null},
-                {"LV97HABA0012345678910", null},
-                {"LB92000700000000123123456123", null},
-                {"LI7408806123456789012", null},
-                {"LT601010012345678901", null},
-                {"LU120010001234567891", null},
-                {"MK07200002785123453", null},
-                {"MT31MALT01100000000000000000123", null},
-                {"MR1300020001010000123456753", null},
-                {"MU43BOMM0101123456789101000MUR", null},
-                {"MD21EX000000000001234567", null},
-                {"MC5810096180790123456789085", null},
-                {"ME25505000012345678951", null},
-                {"NO8330001234567", null},
-                {"NL02ABNA0123456789", null},
-                {"PK36SCBL0000001123456702", null},
-                {"PS92PALS000000000400123456702", null},
-                {"PL10105000997603123456789123", null},
-                {"PT50002700000001234567833", null},
-                {"QA54QNBA000000000000693123456", null},
-                {"GB98MIDL07009312345678", null},
-                {"CZ5508000000001234567899", null},
-                {"DO22ACAU00000000000123456789", null},
-                {"SK8975000000000012345671", null},
-                {"RO09BCYP0000001234567890", null},
-                {"SM76P0854009812123456789123", null},
-                {"LC14BOSL123456789012345678901234", null},
-                {"ST23000200000289355710148", null},
-                {"RS35105008123123123173", null},
-                {"SC52BAHL01031234567890123456USD", null},
-                {"SI56192001234567892", null},
-                {"ES7921000813610123456789", null},
-                {"SE7280000810340009783242", null},
-                {"CH5604835012345678009", null},
-                {"TL380010012345678910106", null},
-                {"TN5904018104004942712345", null},
-                {"TR320010009999901234567890", null},
-                {"UA903052992990004149123456789", null},
-                {"HU93116000060000000012345676", null},
-                {"DZ4000400174401001050486", null},
-                {"AO06004400006729503010102", null},
-                {"BJ11B00610100400271101192591", null},
-                {"BF1030134020015400945000643", null},
-                {"BI43201011067444", null},
-                {"CM2110002000300277976315008", null},
-                {"CV64000500000020108215144", null},
-                {"CG3930011000101013451300019", null},
-                {"CI05A00060174100178530011852", null},
-                {"EG2100037000671002392189379", null},
-                {"GA2140021010032001890020126", null},
-                {"IR710570029971601460641001", null},
-                {"MG4600005030071289421016045", null},
-                {"ML03D00890170001002120000447", null},
-                {"MZ59000100000011834194157", null},
-                {"SN12K00100152000025690007542", null},
-        });
-    }
-
     public static Collection<Object[]> getIbanData() {
         return Arrays.asList(new Object[][]{
                 {new Iban.Builder()
@@ -179,11 +83,7 @@ final class TestDataHelper {
                         .build(), "BG80BNBG96611020345678"},
                 {new Iban.Builder()
                         .countryCode(CountryCode.CR)
-                        .bankCode("152")
-                        .accountNumber("02001026284066")
-                        .build(), "CR0515202001026284066"},
-                {new Iban.Builder()
-                        .countryCode(CountryCode.CR)
+                        .reserveNumber("0")
                         .bankCode("151")
                         .accountNumber("08410026012345")
                         .build(), "CR23015108410026012345"},
@@ -530,7 +430,47 @@ final class TestDataHelper {
                         .countryCode(CountryCode.UA)
                         .bankCode("354347")
                         .accountNumber("0006762462054925026")
-                        .build(), "UA573543470006762462054925026"}
+                        .build(), "UA573543470006762462054925026"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.BY)
+                        .bankCode("AKBB")
+                        .branchCode("1010")
+                        .accountNumber("0000002966000000")
+                        .build(), "BY86AKBB10100000002966000000"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.SV)
+                        .bankCode("ACAT")
+                        .accountNumber("00000000000000123123")
+                        .build(), "SV43ACAT00000000000000123123"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.IQ)
+                        .bankCode("CBIQ")
+                        .branchCode("861")
+                        .accountNumber("800101010500")
+                        .build(), "IQ20CBIQ861800101010500"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.LC)
+                        .bankCode("BOSL")
+                        .accountNumber("123456789012345678901234")
+                        .build(), "LC14BOSL123456789012345678901234"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.ST)
+                        .bankCode("0002")
+                        .branchCode("0000")
+                        .accountNumber("0289355710148")
+                        .build(), "ST23000200000289355710148"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.SC)
+                        .bankCode("BAHL")
+                        .branchCode("0103")
+                        .accountNumber("1234567890123456")
+                        .currency("USD")
+                        .build(), "SC52BAHL01031234567890123456USD"},
+                {new Iban.Builder()
+                        .countryCode(CountryCode.BJ)
+                        .bankCode("B")
+                        .accountNumber("00610100400271101192591")
+                        .build(), "BJ11B00610100400271101192591"},
         });
     }
 

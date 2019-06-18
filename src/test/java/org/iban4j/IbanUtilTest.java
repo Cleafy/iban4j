@@ -266,27 +266,6 @@ public class IbanUtilTest {
     }
 
     @RunWith(Parameterized.class)
-    public static class ValidIbanValidationTest {
-
-        private final String iban;
-
-        public ValidIbanValidationTest(String iban, Object __) {
-            this.iban = iban;
-        }
-
-        @Test
-        public void ibanValidationWithValidIbanShouldNotThrowException() {
-            System.out.println(iban);
-            IbanUtil.validate(iban);
-        }
-
-        @Parameterized.Parameters
-        public static Collection<Object[]> ibanParameters() {
-            return TestDataHelper.getIbans();
-        }
-    }
-
-    @RunWith(Parameterized.class)
     public static class ValidIbanDataValidationTest {
 
         private final String ibanString;
